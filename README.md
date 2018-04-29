@@ -21,6 +21,7 @@ Usage: <br>
   
   <b>3. experiment.com <br></b>
       <code>cd ExperimentDotComScraper</code><br>
+      - Change path to Chrome Webdriver on line 77 <br>
       <code>python experimentDotComScraper.py</code><br>
           Limitations:<br>
             - Collects info about ALL projects slowly<br><br>
