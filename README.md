@@ -12,7 +12,7 @@ USAGE <br>
           1.1 Limitation:<br>
             - Collects info for the first 240 projects under the filter 'Nearly Funded' only<br>
           1.2 Solution (to collect info about ALL projects): <br>
-            - Replace line 8 on kickstarterleads.py with: <b>start_urls = ["https://www.kickstarter.com/discover/advanced?google_chrome_workaround&woe_id=0&sort=magic&seed=2541734&page={}".format(page) for page in range(1, n)] where n = allProjects as shown on https://www.kickstarter.com/discover/advanced?ref=discovery_overlay divide by 12<b> <br>
+            - Replace lines 6 and 10 on kickstarterleads.py with: <b>baseURL = "https://www.kickstarter.com/discover/advanced?google_chrome_workaround&woe_id=0&sort=magic&seed=2541734&page={}<b> <br>
   
   <b>2. crowdsupply.com </b><br>
       a) <code>cd CrowdSupplyDotComScraper</code><br>
