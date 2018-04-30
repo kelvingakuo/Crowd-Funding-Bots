@@ -22,6 +22,7 @@ class GetKickstarterLeads(scrapy.Spider):
 					firstName = fullname.split( )[0]
 					lastName = fullname.split( )[1]
 				else:
+					firstName = fullname.split( )[0] 
 					lastName = " "
 			else:
 				firstName = " "
@@ -50,6 +51,7 @@ class GetKickstarterLeads(scrapy.Spider):
 		while n<len(links):
 			website = links[n].css('a::attr(href)').extract_first()
 			sites.append(website)
+			n=n+1
 		item['website'] = sites
 
 
