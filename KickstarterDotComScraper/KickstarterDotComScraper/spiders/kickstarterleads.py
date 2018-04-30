@@ -3,13 +3,13 @@ import json
 
 class GetKickstarterLeads(scrapy.Spider):
 	name = 'kickstarterleads'
-	baseURL ="https://www.kickstarter.com/discover/advanced?google_chrome_workaround&woe_id=0&staff_picks=1&raised=1&sort=end_date&seed=2541711&page={}"
-	start_urls = [baseURL.format('1')]
+	baseURL ="https://www.kickstarter.com/discover/advanced?google_chrome_workaround&woe_id=0&staff_picks=1&raised=1&sort=end_date&seed=2541711&page={0:04d}"
+	start_urls = [baseURL.format(1)]
 
 	def parse(self, response):
-		baseURL ="https://www.kickstarter.com/discover/advanced?google_chrome_workaround&woe_id=0&staff_picks=1&raised=1&sort=end_date&seed=2541711&page={}"
+		baseURL ="https://www.kickstarter.com/discover/advanced?google_chrome_workaround&woe_id=0&staff_picks=1&raised=1&sort=end_date&seed=2541711&page={0:04d}"
 		currentPage = response.url
-		pageNumber = int(currentPage[-1:]) #Extract page number as last char on the URL
+		pageNumber = int(currentPage[-4:]) #Extract page number as last 4 chars on the URL
 		data = json.loads(response.body)
 
 		for project in data.get('projects', []):
@@ -37,7 +37,7 @@ class GetKickstarterLeads(scrapy.Spider):
 			yield request
 
 		if (data['has_more']):
-			nxt = str(pageNumber + 1)
+			nxt = pageNumber + 1
 			getNxtJSON = baseURL.format(nxt)
 			yield scrapy.Request(url=getNxtJSON , callback=self.parse)
 
