@@ -12,7 +12,7 @@ USAGE <br>
           1.1 Limitation:<br>
             - Collects info for the first 240 projects under the filter 'Nearly Funded' only<br>
           1.2 Solution (to collect info about ALL projects): <br>
-            - Replace lines 6 and 10 on kickstarterleads.py with: <b>baseURL = "https://www.kickstarter.com/discover/advanced?google_chrome_workaround&woe_id=0&sort=magic&seed=2541734&page={}<b> <br>
+            - Replace lines 6 and 10 on kickstarterleads.py with: <b>baseURL = "https://www.kickstarter.com/discover/advanced?google_chrome_workaround&woe_id=0&sort=magic&seed=2541734&page={0:04d}<b> <br>
   
   <b>2. crowdsupply.com </b><br>
       a) <code>cd CrowdSupplyDotComScraper</code><br>
